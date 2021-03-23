@@ -8,7 +8,18 @@ main()
     })
     .catch((err: Error) => {
         fs.appendFileSync("loggingggg", "err enter", 'utf8')
-        fs.appendFileSync("loggingggg", JSON.stringify(err), 'utf8')
+        fs.appendFileSync("loggingggg", JSON.stringify(err, (key, value) => {
+            if(value instanceof Map) {
+              return {
+                dataType: 'Map',
+                value: Array.from(value.entries()), // or with spread: value: [...value]
+              };
+            } else {
+              return value;
+            }
+          }), 'utf8')
+          fs.appendFileSync("loggingggg", "err mid", 'utf8')
+        fs.appendFileSync("loggingggg", err, 'utf8')
         fs.appendFileSync("loggingggg", "err leave", 'utf8')
         setFailed(err.message);
         process.exit(1);
