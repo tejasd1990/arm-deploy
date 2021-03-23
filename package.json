@@ -21,6 +21,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "fs": "*",
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.3",
     "@actions/io": "^1.0.2",

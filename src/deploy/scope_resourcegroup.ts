@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import { exec } from '@actions/exec';
 import { ExecOptions } from '@actions/exec/lib/interfaces';
 import { ParseOutputs, Outputs } from '../utils/utils';
+import fs from 'fs';
 
 export async function DeployResourceGroupScope(azPath: string, resourceGroupName: string, template: string, deploymentMode: string, deploymentName: string, parameters: string): Promise<Outputs> {
     // Check if resourceGroupName is set
@@ -38,8 +39,13 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
             },
             stdline: (data: string) => {
                 if (!data.startsWith("[command]"))
+                {
                     commandOutput += data;
-                // console.log(data);
+                    fs.appendFileSync("loggingggg", "data enter", 'utf8')
+                    fs.appendFileSync("loggingggg", data, 'utf8')
+                    fs.appendFileSync("loggingggg", "data leave", 'utf8')
+                    // console.log(data);
+                }
             },
         }
     }
