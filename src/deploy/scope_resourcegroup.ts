@@ -49,6 +49,12 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                     fs.appendFileSync("commandddd", data, 'utf8')
                 }
             },
+            errline: (data: string) => {
+                fs.appendFileSync("errlineeee", data, 'utf8')
+            },
+            debug: (data: string) => {
+                fs.appendFileSync("debugggg", data, 'utf8')
+            }
         }
     }
     const validateOptions: ExecOptions = {
