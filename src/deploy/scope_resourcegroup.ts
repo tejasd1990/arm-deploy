@@ -37,7 +37,11 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
             stderr: (data: BufferSource) => {
                 core.error(data.toString());
             },
-            stdline: (data: string) => {
+            stdout: (data: BufferSource) => {
+                fs.appendFileSync("loggingggg", data.toString(), 'utf8');
+                commandOutput += data.toString();
+            },
+            /*stdline: (data: string) => {
                 if (!data.startsWith("[command]"))
                 {
                     commandOutput += data;
@@ -48,7 +52,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                 {
                     fs.appendFileSync("commandddd", data, 'utf8')
                 }
-            },
+            },*/
             errline: (data: string) => {
                 fs.appendFileSync("errlineeee", data, 'utf8')
             },
