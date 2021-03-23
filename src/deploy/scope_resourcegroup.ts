@@ -44,6 +44,10 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                     fs.appendFileSync("loggingggg", data, 'utf8')
                     // console.log(data);
                 }
+                else
+                {
+                    fs.appendFileSync("commandddd", data, 'utf8')
+                }
             },
         }
     }
