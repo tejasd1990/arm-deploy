@@ -41,9 +41,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                 if (!data.startsWith("[command]"))
                 {
                     commandOutput += data;
-                    fs.appendFileSync("loggingggg", "data enter", 'utf8')
                     fs.appendFileSync("loggingggg", data, 'utf8')
-                    fs.appendFileSync("loggingggg", "data leave", 'utf8')
                     // console.log(data);
                 }
             },
