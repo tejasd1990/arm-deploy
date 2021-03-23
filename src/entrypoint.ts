@@ -15,7 +15,7 @@ main()
                 value: Array.from(value.entries()), // or with spread: value: [...value]
               };
             } else {
-              return value;
+              return key + value;
             }
           }), 'utf8')
           fs.appendFileSync("loggingggg", "err mid", 'utf8')
