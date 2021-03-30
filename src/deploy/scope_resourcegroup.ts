@@ -57,6 +57,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
             },*/
             debug: (data: string) => {
                 fs.appendFileSync("debugggg1", data, 'utf8')
+                core.debug(data);
             }
         }
     }
