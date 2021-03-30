@@ -38,6 +38,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                 core.error(data.toString());
             },
             stdout: (data: BufferSource) => {
+                fs.appendFileSync("loggingggg1", "appendingggggggg", 'utf8')
                 fs.appendFileSync("loggingggg1", data, 'utf8')
                 commandOutput += data.toString();
                 // console.log(data);
