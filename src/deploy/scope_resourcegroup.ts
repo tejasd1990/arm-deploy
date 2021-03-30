@@ -38,8 +38,9 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                 core.error(data.toString());
             },
             stdout: (data: BufferSource) => {
-                fs.appendFileSync("loggingggg", data.toString(), 'utf8');
+                fs.appendFileSync("loggingggg1", data, 'utf8')
                 commandOutput += data.toString();
+                // console.log(data);
             },
             /*stdline: (data: string) => {
                 if (!data.startsWith("[command]"))
@@ -53,11 +54,8 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
                     fs.appendFileSync("commandddd", data, 'utf8')
                 }
             },*/
-            errline: (data: string) => {
-                fs.appendFileSync("errlineeee", data, 'utf8')
-            },
             debug: (data: string) => {
-                fs.appendFileSync("debugggg", data, 'utf8')
+                fs.appendFileSync("debugggg1", data, 'utf8')
             }
         }
     }
