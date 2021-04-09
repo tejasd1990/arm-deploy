@@ -11,7 +11,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
     }
 
     // Check if the resourceGroup exists
-    var result = await exec(`"${azPath}" group show --resource-group ${resourceGroupName}`, [], { silent: true, ignoreReturnCode: true });
+    var result = await exec(`"${azPath}" group show --resource-group ${resourceGroupName}`, [], { silent: false, ignoreReturnCode: true });
     if (result != 0) {
         throw Error(`Resource Group ${resourceGroupName} could not be found.`)
     }
@@ -30,7 +30,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
     // configure exec to write the json output to a buffer
     let commandOutput = '';
     const deployOptions: ExecOptions = {
-        silent: true,
+        silent: false,
         ignoreReturnCode: true,
         failOnStdErr: true,
         listeners: {
@@ -62,7 +62,7 @@ export async function DeployResourceGroupScope(azPath: string, resourceGroupName
         }
     }
     const validateOptions: ExecOptions = {
-        silent: true,
+        silent: false,
         ignoreReturnCode: true,
         listeners: {
             stderr: (data: BufferSource) => {
