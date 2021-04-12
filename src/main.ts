@@ -26,7 +26,7 @@ export async function main(): Promise<Outputs> {
     // change the subscription context
     if (scope !== "managementgroup" && subscriptionId !== "") {
         info("Changing subscription context...")
-        await exec(`"${azPath}" account set --subscription ${subscriptionId}`, [], { silent: false })
+        await exec(`"${azPath}" account set --subscription ${subscriptionId}`, [], { silent: true })
     }
 
     // Run the Deployment
